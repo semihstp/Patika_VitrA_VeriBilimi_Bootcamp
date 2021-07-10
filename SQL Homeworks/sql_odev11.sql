@@ -1,9 +1,9 @@
 -- 1)
--- actor ve customer table'larından first_name sütunlarının hepsini gösterdim.	
+-- actor ve customer table'larından first_name sütunlarını gösterdim.	
 (
 SELECT first_name FROM actor
 )
-UNION ALL
+UNION
 (
 SELECT first_name FROM customer
 );
@@ -32,15 +32,15 @@ SELECT first_name FROM customer
 
 
 -- 4)
--- İlk 3 sorguyu tekrar eden başka bir sütun olan last_name için de yapalım.
+-- İlk 3 sorguyu tekrar eden başka sütunları da göstererek yapalım. Yani ALL kullanalım.
 -- 4.1)
 --
 (
-SELECT last_name FROM actor
+SELECT first_name FROM actor
 )
 UNION ALL
 (
-SELECT last_name FROM customer
+SELECT first_name FROM customer
 );
 
 -- 4.2)
@@ -48,7 +48,7 @@ SELECT last_name FROM customer
 (
 SELECT first_name FROM actor
 )
-INTERSECT
+INTERSECT ALL
 (
 SELECT first_name FROM customer
 );
@@ -58,7 +58,7 @@ SELECT first_name FROM customer
 (
 SELECT first_name FROM actor
 )
-EXCEPT
+EXCEPT ALL
 (
 SELECT first_name FROM customer
 );
